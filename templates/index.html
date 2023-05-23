@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8" content="width:device-width, initial-scale:1.0" />
+
+        <title>ShortenIt</title>
+
+        <link
+
+            rel="stylesheet"
+
+            href="{{url_for('static', filename='style.css')}}"
+
+        />
+
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <h1>Shorten Your URL</h1>
+
+            <form action="/shorten" method="POST" accept-charset="utf-8">
+
+                <input
+
+                    type="text"
+
+                    name="text"
+
+                    id="url"
+
+                    value=""
+
+                    placeholder="Enter Long URL"
+
+                    autocomplete="off"
+
+                />
+
+                <input
+
+                    type="submit"
+
+                    name="submit"
+
+                    id="submit"
+
+                    value="Shorten"
+
+                />
+
+            </form>
+
+            <div class="output" id="output">
+
+                <div class="shortenLink">
+
+                    {% if result %}
+
+                    <a href="{{result}}"><h4 id="shortenedLink">{{result}}</h4></a>
+
+                    {% endif %}
+
+                </div>
+
+                <input type="submit" name="copy" id="copy" value="Copy Link" />
+
+            </div>
+
+        </div>
+
+        <footer class="footer">
+
+            <div class="links">
+
+                <a
+
+                    class="insta"
+
+                    href="https://www.instagram.com/invites/contact/?i=r8k1kr0lqr51&utm_content=hblizqj"
+
+                    ><i class="fa fa-instagram"></i
+
+                ></a>
+
+                <a
+
+                    class="twitter"
+
+                    href="https://twitter.com/anath5440?t=d49csy4TNRUF3QVa3jbwZg&s=09"
+
+                    ><i class="fa fa-twitter"></i
+
+                ></a>
+
+                <a
+
+                    class="facebook"
+
+                    href="https://www.facebook.com/profile.php?id=100086780768687&mibextid=ZbWKwL"
+
+                    ><i class="fa fa-facebook"></i
+
+                ></a>
+
+                <a class="mail" href="mailto:anath5440@gmail.com"
+
+                    ><i class="fa fa-envelope"></i
+
+                ></a>
+
+                <a class="github" href="https://github.com/Akash-nath29"
+
+                    ><i class="fa fa-github"></i
+
+                ></a>
+
+            </div>
+
+            <h4>Make sure to Follow On Social Medias</h4>
+
+            <h4>Enjoy Your Internet-Surfing</h4>
+
+            <h6>©2023----All right Reserved</h6>
+
+        </footer>
+
+        <script type="text/javascript" charset="utf-8">
+
+            // Get references to the <h4> element and the copy button
+
+            var textElement = document.getElementById("shortenedLink");
+
+            var copyButton = document.getElementById("copy");
+
+            // Add a click event listener to the copy button
+
+            copyButton.addEventListener("click", function () {
+
+                // Get the text from the <h4> element
+
+                var textToCopy = textElement.innerText;
+
+                // Use the Clipboard API to copy the text to the clipboard
+
+                navigator.clipboard
+
+                    .writeText(textToCopy)
+
+                    .then(function () {
+
+                        alert("Text copied to clipboard:", textToCopy);
+
+                    })
+
+                    .catch(function (error) {
+
+                        alert("Failed to copy text to clipboard:", error);
+
+                    });
+
+            });
+
+        </script>
+
+        <script
+
+            src="https://kit.fontawesome.com/dabeb5f8c7.js"
+
+            crossorigin="anonymous"
+
+        ></script>
+
+        <script type="module">
+
+            // Import the functions you need from the SDKs you need
+
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+
+            // TODO: Add SDKs for Firebase products that you want to use
+
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            // Your web app's Firebase configuration
+
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+            const firebaseConfig = {
+
+                apiKey: "AIzaSyBMuHu_He5F8pUyIwlHukqzAzqWc3dGh4E",
+
+                authDomain: "shortme23.firebaseapp.com",
+
+                projectId: "shortme23",
+
+                storageBucket: "shortme23.appspot.com",
+
+                messagingSenderId: "560837595296",
+
+                appId: "1:560837595296:web:01e5b2af9ea51b6b2cf9c5",
+
+                measurementId: "G-4HX1D837W9",
+
+            };
+
+            // Initialize Firebase
+
+            const app = initializeApp(firebaseConfig);
+
+            const analytics = getAnalytics(app);
+
+        </script>
+
+    </body>
+
+</html>
